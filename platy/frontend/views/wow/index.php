@@ -42,19 +42,24 @@ use yii\helpers\Html;
             </tr>
             <tr>
                 <?php foreach ($accounts as $account): ?>
-                <td>
-                    <form>
-                        <select name="cars" id="account">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <input type="submit" value="Submit">
-                    </form>
+                    <td>
+                        <form action="<?= Yii::$app->urlManager->createUrl(['controller/update-account', 'id' => $account->id]) ?>" method="post">
+                            <select name="player_status" id="account_status">
+                                <option value="0" <?= ($account->player_status == 0) ? 'selected' : '' ?>>Blank</option>
+                                <option value="1" <?= ($account->player_status == 1) ? 'selected' : '' ?>>DF bought</option>
+                                <option value="2" <?= ($account->player_status == 2) ? 'selected' : '' ?>>Unsubscribed</option>
+                                <option value="3" <?= ($account->player_status == 3) ? 'selected' : '' ?>>Subscribed</option>
+                            </select>
+                            <select name="preparation" id="account_preparation">
+                                <option value="0" <?= ($account->preparation == 0) ? 'selected' : '' ?>>Unprepared</option>
+                                <option value="1" <?= ($account->preparation == 1) ? 'selected' : '' ?>>Ready to use</option>
+                            </select>
+                            <input type="submit" value="Submit">
+                        </form>
 
-                </td>
+                    </td>
                 <?php endforeach; ?>
+
             </tr>
 
 
