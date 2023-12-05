@@ -1,0 +1,216 @@
+.divided-button {
+    display: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 30px 100px;
+    background-color: #ffffff;
+    color: #be82f5;
+    border: 1px solid rgba(36, 16, 98, 0);
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 30px;
+}
+.left-content:active {
+    background-color: #be82f5; /* Change to a color you prefer when the left side is pressed */
+    transition: background-color 0.3s ease;
+}
+
+.right-content:active {
+    background-color: #be82f5; /* Change to a color you prefer when the right side is pressed */
+    transition: background-color 0.3s ease;
+}
+
+.divider-line {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #be82f5; /* Color of the divider line */
+    transform: translateX(-50%);
+}
+
+.left-content,
+.right-content {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* Ensure the content is above the divider line */
+
+}
+
+.left-content {
+    left: 0;
+}
+
+.right-content {
+    right: 0;
+}
+
+
+
+body a.custom-btn {
+    background-color: #ffffff;
+    color: #be82f5;
+}
+
+
+.col-lg-4 {
+    position: relative;
+    overflow: hidden;
+    align-items: center; /* Center items vertically */
+    text-align: left;  /* Center text horizontally */
+}
+
+.bg-img1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media.tenor.com/E6EFQaqAYdIAAAAC/shadow-fiend-sf.gif');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 30px; /* Adjust the value to control the amount of rounding */
+    pointer-events: none;
+}
+
+.bg-img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media.tenor.com/7Sa3MIkW430AAAAd/shadow-fiend-dota2.gif');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 30px; /* Adjust the value to control the amount of rounding */
+    pointer-events: none;
+}
+
+
+
+.bg-img3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.makeagif.com/media/8-01-2015/kC_rA6.gif');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+    border-radius: 30px;
+    pointer-events: none;
+}
+
+.col-lg-4:hover .bg-img1  {
+    opacity: 0.2;
+}
+.col-lg-4:hover .bg-img2  {
+    opacity: 0.2;
+}
+.col-lg-4:hover .bg-img3  {
+    opacity: 0.2;
+}
+.content {
+    z-index: 1;
+}
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+.waveWrapper {
+    overflow: hidden;
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+
+}
+
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #301637 20%, #d31d1d 80%);
+}
+
+
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+
+}
+
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.2;
+    background-image: linear-gradient(to top, #27124d 20%, #610000 80%);
+}
+
+.bgBottom {
+    z-index: 5;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+
+}
+
+.waveTop {
+    background-size: 50% 100px;
+
+}
+
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.waveMiddle {
+    background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}

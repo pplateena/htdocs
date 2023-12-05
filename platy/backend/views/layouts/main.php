@@ -11,6 +11,8 @@ use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
 AppAsset::register($this);
+
+$this->registerCssFile('@web/css/style.css');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -68,10 +70,10 @@ AppAsset::register($this);
     </div>
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
+<footer class=" mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-        <p class="float-end"><?= Yii::powered() ?></p>
+        <p class="float-start">&copy; Plateenum's workshop <?= date('Y') ?></p>
+        <p class="float-end">Powered by <strong>IQOS</strong></p>
     </div>
 </footer>
 

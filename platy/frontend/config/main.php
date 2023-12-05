@@ -39,7 +39,7 @@ return [
         'urlManagerBackEnd' => [
             'class' => 'yii\web\UrlManager',
             // Configure the URL manager settings for the frontend application
-            'baseUrl' => Yii::getAlias('@backend') . '\views', // Set the base URL for the frontend application
+            'baseUrl' => Yii::getAlias('@backend') , // Set the base URL for the frontend application
             'enablePrettyUrl' => true, // Enable pretty URLs
             'showScriptName' => false, // Hide the script name in URLs
             // ... Define URL rules for the frontend application

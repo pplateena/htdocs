@@ -18,24 +18,32 @@ class WowController extends \yii\web\Controller
             'accounts' => $accounts,
         ]);
     }
+
+    public function actionAccounts()
+    {
+        $accounts = WowAccount::find()->all();
+
+
+        return $this->render('index', [
+            'accounts' => $accounts,
+        ]);
+    }
     // Controller action
     public function actionUpdate($id)
     {
-        $account = WowAccount::findOne($id);
+        $model = WowAccount::findOne($id);
 
-        if (Yii::$app->request->isPost) {
-            $account->player_status = Yii::$app->request->post('player_status');
-            $account->preparation = Yii::$app->request->post('preparation');
-            Yii::$app->session->setFlash('success', 'yupyup');
-
-            if ($account->save()) {
-                Yii::$app->session->setFlash('success', 'Account updated successfully.');
+        if ($model) {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', 'Values modified successfully.');
             } else {
-                Yii::$app->session->setFlash('error', 'Error updating account.');
+                Yii::$app->session->setFlash('error', 'Error modifying values: ' . print_r($model->errors, true));
             }
+        } else {
+            Yii::$app->session->setFlash('error', 'Record not found.');
         }
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index']); // Redirect to the index page or another view
     }
 
 

@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
-$form = ActiveForm::begin(['id' => 'update-form']);
+echo $model->id;
+$form = ActiveForm::begin(['action' => ['/wow/update', 'id' => $model->id], 'method' => 'post']);
 ?>
 
     <div class="row justify-content-center">

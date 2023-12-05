@@ -38,13 +38,14 @@ class WowController extends Controller
     public function actionUpdate($id)
     {
         $model = WowAccount::findOne($id);
-        if (Yii::$app->request->isPost) {
-            if ($model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 Yii::$app->session->setFlash('success', 'Model saved successfully.');
-            } else {
+            return $this->redirect('index');
+            }
+        else {
                 Yii::$app->session->setFlash('error', 'Failed to save model.');
             }
-        }
+
 
 
         return $this->render('update_form', [
